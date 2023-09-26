@@ -17,14 +17,20 @@ Seja bem vindo(a) ao sistema de gerenciamento de carteira de ações da Nuclea. 
         if option == 1:
             menu_cliente()
         elif option == 2:
-            pass
+           validate = False
+           menu_principal()
         elif option == 3:
-            pass
+            validate = False
+            menu_principal()
         elif option == 4:
-            pass
+            validate = False
+            menu_principal()
         elif option == 5:
             print('Encerrando programa')
-            validate = False
+            exit()
+        else:
+            print('Opçao invalida')
+            menu_principal()
 
 def menu_cliente():
     # lista_cliente = []   
@@ -45,7 +51,7 @@ def menu_cliente():
         if option_cliente == 1:
             cliente ={
                 "Nome": str(input('Digite nome: ')),
-                "CPF": validacao_cpf(str(input('Digite CPF: '))),
+                "CPF": validacao_cpf(str(input('Digite CPF: ')), option_cliente),
                 "RG": str(input('Digite RG: ')),
                 "Nascimento": validacao_nascimento(),
                 "Endereco": buscar_cep(str(input('Digite CEP: '))),
@@ -57,16 +63,16 @@ def menu_cliente():
             # print(lista_cliente)
             validate = False
         elif option_cliente == 2:
-            cpf = validacao_cpf(str(input('Digite CPF do cliente a ser atualizado: ')))
+            cpf = validacao_cpf(str(input('Digite CPF do cliente a ser atualizado: ')), option_cliente)
             update_client(cpf)
             print('Cliente atualizado')
             validate = False
         elif option_cliente == 3:
-            cpf = validacao_cpf(str(input('Digite CPF do cliente: ')))
+            cpf = validacao_cpf(str(input('Digite CPF do cliente: ')), option_cliente)
             read_client(cpf)
             validate = False
         elif option_cliente == 4:
-            cpf = validacao_cpf(str(input('Digite CPF do cliente a ser >> deletado <<: ')))
+            cpf = validacao_cpf(str(input('Digite CPF do cliente a ser >> deletado <<: ')), option_cliente)
             delete_client(cpf)
             print('Cliente deletado')
             validate = False

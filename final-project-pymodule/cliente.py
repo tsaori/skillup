@@ -1,5 +1,5 @@
 import pyodbc
-from utils import *
+import utils
 from variables import *
 # Variables not commited to github > company only
 
@@ -84,9 +84,9 @@ def update_client(cpf):
     while validate:
         cliente ={
                     "Nome": str(input('Digite nome: ')),
-                    "RG": str(input('Digite RG: ')),
-                    "Nascimento": validacao_nascimento(),
-                    "Endereco": buscar_cep(str(input('Digite CEP: '))),
+                    "RG": (str(input('Digite RG: '))),
+                    "Nascimento": utils.validacao_nascimento(),
+                    "Endereco": utils.buscar_cep(str(input('Digite CEP: '))),
                     "Numero": str(input('Digite numero da casa: '))
                 }
         previous_client = read_client(cpf)

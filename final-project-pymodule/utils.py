@@ -21,7 +21,7 @@ def check_cpf(cpf):
     else:
         return False
     
-def validacao_cpf(numero_cpf):
+def validacao_cpf(numero_cpf, opcao):
     cpf = CPF()
     validate = True
     while validate:
@@ -31,18 +31,18 @@ def validacao_cpf(numero_cpf):
         if cpf_validado:
             cpf_formatado = f"{numero_cpf[:3]}.{numero_cpf[3:6]}.{numero_cpf[6:9]}-{numero_cpf[9:]}"
             cpf_checked = check_cpf(cpf_formatado)
-            if cpf_checked == True: 
+            if cpf_checked == False and opcao ==1:
+                numero_cpf = input("CPF já cadastrado. Digite novamente: ")
+            else:
                 validate = False
                 return cpf_formatado
-            else:
-                numero_cpf = input("CPF já cadastrado. Digite novamente: ")
         else:
             numero_cpf = input("CPF inválido. Digite novamente: ")
 
 
 
 
-def validao_rg(rg_input):
+def validacao_rg(rg_input):
     # RG: 11.111.111.-x
     # RG nao valido: 11.111.11x-x
     padrao_rg = r'^\d{2}\.\d{3}\.\d{3}-[0-9A-Za-z]$'
