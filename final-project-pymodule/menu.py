@@ -52,7 +52,7 @@ def menu_cliente():
             cliente ={
                 "Nome": str(input('Digite nome: ')),
                 "CPF": validacao_cpf(str(input('Digite CPF: ')), option_cliente),
-                "RG": str(input('Digite RG: ')),
+                "RG": validacao_rg(str(input('Digite RG: '))),
                 "Nascimento": validacao_nascimento(),
                 "Endereco": buscar_cep(str(input('Digite CEP: '))),
                 "Numero": str(input('Digite numero da casa: '))
